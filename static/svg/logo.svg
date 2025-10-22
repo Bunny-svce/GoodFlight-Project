@@ -1,0 +1,20 @@
+<svg width="160" height="48" viewBox="0 0 320 96" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#0b6cf0"/>
+      <stop offset="1" stop-color="#00d0ff"/>
+    </linearGradient>
+  </defs>
+  <title id="title">GooDFlight</title>
+  <g transform="translate(8,8)">
+    <rect width="80" height="80" rx="16" fill="url(#g1)" opacity="0.12"/>
+    <g transform="translate(12,12)" >
+      <!-- stylized paper-plane -->
+      <path d="M4 28 L68 4 L44 36 L68 64z" fill="none" stroke="url(#g1)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="10" cy="40" r="2.2" fill="#0b6cf0">
+        <animate attributeName="cy" values="40;30;40" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="100" y="44" font-family="Inter, Arial" font-weight="600" font-size="32" fill="#e6eef8">GooDFlight</text>
+  </g>
+</svg>

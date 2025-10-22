@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Results Summary</h2>
+
+{% if summary %}
+<div class="summary-card">
+    <table>
+        <tr>
+            <th>Total Samples</th>
+            <td>{{ summary.Samples }}</td>
+        </tr>
+        <tr>
+            <th>Number of Classes</th>
+            <td>{{ summary.Classes }}</td>
+        </tr>
+        <tr>
+            <th>Accuracy</th>
+            <td>{{ summary.Accuracy }}</td>
+        </tr>
+        <tr>
+            <th>Precision</th>
+            <td>{{ summary.Precision }}</td>
+        </tr>
+        <tr>
+            <th>Recall</th>
+            <td>{{ summary.Recall }}</td>
+        </tr>
+        <tr>
+            <th>F1-Score</th>
+            <td>{{ summary['F1-Score'] }}</td>
+        </tr>
+        <tr>
+            <th>AUC</th>
+            <td>{{ summary.AUC }}</td>
+        </tr>
+    </table>
+</div>
+{% endif %}
+
+<hr>
+
+<h2>Generated Visualizations</h2>
+<p>Below are the visual outputs generated automatically from your uploaded CSV file.</p>
+
+<div class="result-grid">
+    <div class="viz">
+        <h4>Confusion Matrix</h4>
+        <object type="image/svg+xml" data="{{ url_for('static', filename=cm_svg) }}" class="svg-obj"></object>
+    </div>
+
+    <div class="viz">
+        <h4>ROC Curve</h4>
+        <object type="image/svg+xml" data="{{ url_for('static', filename=roc_svg) }}" class="svg-obj"></object>
+    </div>
+
+    <div class="viz">
+        <h4>Prediction Pie Chart</h4>
+        <object type="image/svg+xml" data="{{ url_for('static', filename=pie_svg) }}" class="svg-obj"></object>
+    </div>
+</div>
+
+<div class="meta">
+    <p>Predicted classes: {{ classes }}</p>
+    <a class="btn" href="{{ url_for('upload') }}">Upload another CSV</a>
+</div>
+{% endblock %}
